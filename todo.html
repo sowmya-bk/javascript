@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List</title>
+	<style>
+		.task button{
+			margin-left: 600px;
+		}
+		.task{
+			margin-top: 10px;
+			 
+		}
+	</style>
+</head>
+<body>
+	<h2>To-Do List</h2>
+	<h3>Add Items</h3>
+	<div id="newtask">
+		<input type="text" id="item" />
+		<button id="submit">Add</button>
+	</div>
+	<h3>Tasks</h3>
+	<div id="tasks"></div>
+	<script>
+		document.querySelector('#submit').onclick = function(){
+		    if(document.querySelector('#item').value.length == 0){
+		        alert("Please Enter a Task")
+		    }
+
+		    else{
+		        document.querySelector('#tasks').innerHTML += `
+		            <div class="task">
+		                <span id="taskname">
+		                    ${document.querySelector('#item').value}
+		                </span>
+		                <button class="delete">
+		                    Done
+		                </button>
+		            </div>
+		        `;
+
+		        var current_tasks = document.querySelectorAll(".delete");
+		        for(var i=0; i<current_tasks.length; i++){
+		            current_tasks[i].onclick = function(){
+		                this.parentNode.remove();
+		            }
+		        }
+		    }
+		}
+		
+			
+
+		
+
+	</script>
+
+</body>
+</html>
